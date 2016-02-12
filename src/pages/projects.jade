@@ -1,4 +1,4 @@
-extends ./index.jade
+extends ../layouts/base
 
 block vars
 	- var title = "Проекты | Фидалс";
@@ -6,7 +6,7 @@ block vars
 	- var selectedLink = 'Проекты';
 
 block append styles
-	link(rel="stylesheet", href="css/portfolio.css")
+	link(rel="stylesheet", href="/css/portfolio.css")
 
 block content
 	.container
@@ -51,5 +51,5 @@ block content
 							li.portfolio-list-item Стандартный функционал магазина
 
 block append scripts
-	script(src='js/libs/jquery.fancybox.js')
-	script(src='js/pages/contacts.js')
+	script(src='/js/libs/jquery.fancybox.js')
+	script(src='/js/pages/contacts.js')

@@ -1,0 +1,26 @@
+extends ./base
+
+block vars
+	- var title = "Фидалс | Блоги";
+	- var bodyClass = "blog";
+	- var selectedLink = 'Блоги';
+
+block append styles
+	link(rel="stylesheet", href="/css/blog.css")
+block content
+	.container
+		.text-title-wrapper
+			h1.text-title Блоги
+		.row
+			.col-lg-8
+				.blogs-wrapper
+					each item in previewItems
+						.blog-item
+							a(class="blog-item-link" href=item.alias)= item.title
+							p.blog-item-text= item.text
+							p.blog-item-data.clearfix
+								i(class="fa fa-calendar-check-o")
+								span.blog-item-date= item.date
+								a(class="blog-item-btn-more btn btn-primary" href=item.alias) Подробнее
+			.col-lg-4
+				include ./sidebar-right

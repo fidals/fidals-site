@@ -4,11 +4,11 @@
 ;(function($) {
 	var mainPage = {
 		/**
-		 * Метод инициализации.
+		 * Инициализирует Модуль
 		 */
 		initialize : function() {
 			/**
-			 * Плагин меню для мобильных устройств.
+			 * Инициализирует плагин Навигации для мобильных устройств
 			 */
 			$('#menu').mmenu({
 				extensions	: [ 'effect-slide-menu', 'pageshadow' ],
@@ -16,11 +16,11 @@
 					placeholder : "Поиск",
 					search      : true
 				},
-				counters	: true,
-				navbar 		: {
+				counters : true,
+				navbar 	 : {
 					title : 'Меню'
 				},
-				navbars		: [
+				navbars : [
 					{
 						position : 'top',
 						content	 : [ 'searchfield' ]
@@ -39,7 +39,7 @@
 		},
 
 		/**
-		 * Метод установки слушателей.
+		 * Устанавливает слушатели событий
 		 */
 		setUpListeners: function() {
 			// $(document).on("scroll", this.someMethod);
@@ -48,7 +48,7 @@
 	};
 
 	/**
-	 * Инициализирует модуль.
+	 * Инициализирует модуль
 	 */
 	mainPage.initialize();
 }(jQuery));

@@ -1,329 +1,189 @@
-block vars
-	- var title = "Разработка | Фидалс";
-	- var bodyClass = "";
-	- var selectedLink = 'Главная';
+﻿extends ./layouts/base
 
-block menuItems
-	- var menuItems = { 'Главная': '/', 'Проекты': '/projects.html', 'Контакты': '/contacts.html' };
+block content
+	.container
+		.text-title-wrapper
+			h1.title-main.text-title.text-center Команда Фидалс
+		.skills-section
+			.row
+				.col-sm-4
+					.skills-item
+						a(href="#")
+							img(class="img-responsive", src="/images/main-page/1.jpg")
+						a(class="skills-item-link" href="#")
+							h3.skills-item-title Разрабатываем ТЗ
+						ul.skills-list.list-unstyled
+							li.skills-list-item Собираем информацию у клиента
+							li.skills-list-item Предлагаем решение
+							li.skills-list-item Описываем его для программистов
+							li.skills-list-item Подойдёт для любых исполнителей
+				.col-sm-4
+					.skills-item
+						a(href="#")
+							img(class="img-responsive", src="/images/main-page/2.jpg")
+						a(class="skills-item-link" href="#")
+							h3.skills-item-title Реализуем проекты на Symfony
+						ul.skills-list.list-unstyled
+							li.skills-list-item Или на более подходящих решениях
+							li.skills-list-item Сервисы, приложения, сайты
+							li.skills-list-item Опыт в нагруженных интернет-магазинах
+							li.skills-list-item Есть контроль качества
+				.col-sm-4
+					.skills-item
+						a(href="#")
+							img(class="img-responsive", src="/images/main-page/3.jpg")
+						a(class="skills-item-link" href="#")
+							h3.skills-item-title Создаём бизнес-процессы
+						ul.skills-list.list-unstyled
+							li.skills-list-item Часто нужна смена процесса, а не ПО
+							li.skills-list-item Изучаем бизнес клиента
+							li.skills-list-item Создаём новый процесс для бизнеса
+							li.skills-list-item Внедряем новые процессы в бизнес
+		.speech-section
+			.row
+				.col-sm-6.col-md-4.col-lg-6
+					.speech-item.clearfix
+						.speech-img-wrapper
+							a(href="#")
+								img(class="img-responsive" src="/images/main-page/4.jpg")
 
-doctype html
-html
-	head
-		block meta
-			meta(charset='utf-8')
-			meta(http-equiv='X-UA-Compatible', content='IE=edge')
+						a(class="speech-item-link" href="#")
+							h3.speech-item-title Программистам - вакансия
+						p.speech-text
+							| У нас (да и не только) хронический дефицит программистов. Занимаемся вебом, пишем на php+js+фреймворки. Если ищешь команду на фуллтайм, с радостью познакомимся и обсудим условия работы у нас.
 
-			link(rel="apple-touch-icon", sizes="57x57", href="/images/apple-touch-icon-57x57.png")
-			link(rel="apple-touch-icon", sizes="60x60", href="/images/apple-touch-icon-60x60.png")
-			link(rel="apple-touch-icon", sizes="72x72", href="/images/apple-touch-icon-72x72.png")
-			link(rel="apple-touch-icon", sizes="76x76", href="/images/apple-touch-icon-76x76.png")
-			link(rel="apple-touch-icon", sizes="114x114", href="/images/apple-touch-icon-114x114.png")
-			link(rel="apple-touch-icon", sizes="120x120", href="/images/apple-touch-icon-120x120.png")
-			link(rel="apple-touch-icon", sizes="144x144", href="/images/apple-touch-icon-144x144.png")
-			link(rel="apple-touch-icon", sizes="152x152", href="/images/apple-touch-icon-152x152.png")
-			link(rel="apple-touch-icon", sizes="180x180", href="/images/apple-touch-icon-180x180.png")
-			link(rel="icon", type="image/png", href="/images/favicon-32x32.png", sizes="32x32")
-			link(rel="icon", type="image/png", href="/images/favicon-194x194.png", sizes="194x194")
-			link(rel="icon", type="image/png", href="/images/favicon-96x96.png", sizes="96x96")
-			link(rel="icon", type="image/png", href="/images/android-chrome-192x192.png", sizes="192x192")
-			link(rel="icon", type="image/png", href="/images/favicon-16x16.png", sizes="16x16")
-			link(rel="manifest", href="/images/manifest.json")
-			link(rel="mask-icon", href="/images/safari-pinned-tab.svg", color="#5bbad5")
-			link(rel="shortcut icon", href="/images/favicon.ico")
-			meta(name="msapplication-TileColor", content="#ffffff")
-			meta(name="msapplication-TileImage", content="/images/mstile-144x144.png")
-			meta(name="msapplication-config", content="/images/browserconfig.xml")
-			meta(name="theme-color", content="#ffffff")
+				.col-sm-6.col-md-4.col-lg-6
+					.speech-item.clearfix
+						.speech-img-wrapper
+							a(href="#")
+								img(class="img-responsive" src="/images/main-page/5.jpg")
 
-			title #{title}
+						a(class="speech-item-link" href="#")
+							h3.speech-item-title Малому бизнесу
+						p.speech-text
+							| Мы решаем проблемы с приложениями, сайтами, бизнес-процессами и маркетингом. В России у 95% малых бизнесов полный провал по этим пунктам. С нами вы можете сосредоточиться на специфике бизнеса.
 
-			meta(name='description', content='')
-			meta(name='viewport', content='width=device-width, initial-scale=1')
+				.col-sm-6.col-md-4.col-lg-6
+					.speech-item.clearfix
+						.speech-img-wrapper
+							a(href="#")
+								img(class="img-responsive" src="/images/main-page/6.jpg")
 
-		block styles
-			link(href='https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic', rel='stylesheet', type='text/css')
-			link(rel='stylesheet', href='css/styles.css')
+						a(class="speech-item-link" href="#")
+							h3.speech-item-title Коллегам - студии, dev-teams
+						p.speech-text
+							| Разработка - наше самое сильное место. Вы берёте на себя работу с клиентом и проектирование, мы - разработку.
+							| Умеем работать через трекеры, контроль версий и code-review.
 
-	body(class="#{bodyClass}")
-		.page-wrapper
-			.header#header
-				block header
-					.container.header-container
-						a(class="header-toggle-menu", href="#menu")
-						nav#menu(style="display: none")
-							ul
-								each val, key in menuItems
-									li
-										if key === selectedLink
-											a.active(href=val)= key
-										else
-											a(href=val)= key
+				.col-sm-6.col-md-4.col-lg-6
+					.speech-item.clearfix
+						.speech-img-wrapper
+							a(href="#")
+								img(class="img-responsive" src="/images/main-page/7.jpg")
 
-						a(class="header-logo-link", href="/", rel="nofollow")
-							img(class="img-responsive" src="/images/logo.jpg" alt="FidAls" title="На главную")
+						a(class="speech-item-link" href="#")
+							h3.speech-item-title Стартапам
+						p.speech-text
+							| Сейчас стартапы часто связаны с технологичным проектами. У нас есть опыт в таких. Мы уже создали пару нагруженных сайтов с небольшими веб-приложениями внутри.
+							| По проектированию и технологиям нас консультируют пара инсайдеров крупных IT-компаний (аутсорс, продуктовые).
 
-						ul.header-nav.list-unstyled
-							each val, key in menuItems
-								li.header-nav-item
-									if key === selectedLink
-										a.header-nav-link.active(href=val)= key
-									else
-										a.header-nav-link(href=val)= key
+				.col-sm-6.col-md-4.col-lg-6
+					.speech-item.clearfix
+						.speech-img-wrapper
+							a(href="#")
+								img(class="img-responsive" src="/images/main-page/8.jpg")
 
-						.header-contacts
-							p.header-contacts-item.header-contacts-phone
-								i(class="fa fa-phone")
-								a(class="header-contacts-link" href="tel:+78129061905") +7 (812) 906-19-05
-							p.header-contacts-item.header-contacts-email
-								i(class="fa fa-envelope")
-								a(class="header-contacts-link" href="mailto:info@fidals.com") info@fidals.com
+						a(class="speech-item-link" href="#")
+							h3.speech-item-title Инвесторам
+						p.speech-text
+							| У нас есть бизнес-модели пары недорогих сервисов. Мы можем их реализовать: команда, опыт в бизнесе, в разработке, консультанты по технологиям и запуску продуктов.
+							| Если вас интересуют вложения - пишите, мы обсудим условия.
 
-			.content
-				block content
-					.container
-						.text-title-wrapper
-							h1.title-main.text-title.text-center Команда Фидалс
-						.skills-section
-							.row
-								.col-sm-4
-									.skills-item
-										a(href="#")
-											img(class="img-responsive", src="/images/main-page/1.jpg")
-										a(class="skills-item-link" href="#")
-											h3.skills-item-title Разрабатываем ТЗ
-										ul.skills-list.list-unstyled
-											li.skills-list-item Собираем информацию у клиента
-											li.skills-list-item Предлагаем решение
-											li.skills-list-item Описываем его для программистов
-											li.skills-list-item Подойдёт для любых исполнителей
-								.col-sm-4
-									.skills-item
-										a(href="#")
-											img(class="img-responsive", src="/images/main-page/2.jpg")
-										a(class="skills-item-link" href="#")
-											h3.skills-item-title Реализуем проекты на Symfony
-										ul.skills-list.list-unstyled
-											li.skills-list-item Или на более подходящих решениях
-											li.skills-list-item Сервисы, приложения, сайты
-											li.skills-list-item Опыт в нагруженных интернет-магазинах
-											li.skills-list-item Есть контроль качества
-								.col-sm-4
-									.skills-item
-										a(href="#")
-											img(class="img-responsive", src="/images/main-page/3.jpg")
-										a(class="skills-item-link" href="#")
-											h3.skills-item-title Создаём бизнес-процессы
-										ul.skills-list.list-unstyled
-											li.skills-list-item Часто нужна смена процесса, а не ПО
-											li.skills-list-item Изучаем бизнес клиента
-											li.skills-list-item Создаём новый процесс для бизнеса
-											li.skills-list-item Внедряем новые процессы в бизнес
-						.speech-section
-							.row
-								.col-sm-6.col-md-4.col-lg-6
-									.speech-item.clearfix
-										.speech-img-wrapper
-											a(href="#")
-												img(class="img-responsive" src="/images/main-page/4.jpg")
+				.col-sm-6.col-md-4.col-lg-6
+					.speech-item.clearfix
+						.speech-img-wrapper
+							a(href="#")
+								img(class="img-responsive" src="/images/main-page/9.jpg")
 
-										a(class="speech-item-link" href="#")
-											h3.speech-item-title Программистам - вакансия
-										p.speech-text
-											| У нас (да и не только) хронический дефицит программистов. Занимаемся вебом, пишем на php+js+фреймворки. Если ищешь команду на фуллтайм, с радостью познакомимся и обсудим условия работы у нас.
+						a(class="speech-item-link" href="#")
+							h3.speech-item-title Поддержка - готовым проектам
+						p.speech-text
+							| Если вашему проекту/приложению не нужны серьёзные улучшения, а нужны небольшие правки в любой момент, возьмём его на поддержку по цене 1500-3000 руб/час специалиста.
 
-								.col-sm-6.col-md-4.col-lg-6
-									.speech-item.clearfix
-										.speech-img-wrapper
-											a(href="#")
-												img(class="img-responsive" src="/images/main-page/5.jpg")
+		//- .infographic-section
+			//- img(class="img-responsive" src="" alt="Инфографика")
 
-										a(class="speech-item-link" href="#")
-											h3.speech-item-title Малому бизнесу
-										p.speech-text
-											| Мы решаем проблемы с приложениями, сайтами, бизнес-процессами и маркетингом. В России у 95% малых бизнесов полный провал по этим пунктам. С нами вы можете сосредоточиться на специфике бизнеса.
+		.prices-section
+			.text-title-wrapper
+				h2.prices-title.text-title.text-center Цены
+				h4.prices-subtitle.text-center откуда берутся и как мы их считаем
+			.row
+				.col-md-6.clearfix
+					.prices-item
+						.prices-img-wrapper
+							img(class="img-responsive" src="/images/main-page/6.jpg")
+						h4.prices-item-title Почасовая оплата
+						p.prices-item-text
+							| Все наши цены так или иначе упираются в часы работы, что мы затратим на проект. Стоимость зависит от сложности проекта. И сложности клиента, конечно.
+				.col-md-6.clearfix
+					.prices-item
+						.prices-img-wrapper
+							img(class="img-responsive" src="/images/main-page/6.jpg")
+						h4.prices-item-title Работа с клиентом
+						p.prices-item-text
+							| От 30% до 80% стоимости (работы) проекта уходит на попытки понять что же нужно клиенту. Если вы хорошо представляете что вам нужно и примерно знаете о порядке цен на работу в ИТ, этот этап пройдёт для вас быстро и дешёво. Тогда проект обойдётся вам дешевле на 30-80%.
+				.col-md-6.clearfix
+					.prices-item
+						.prices-img-wrapper
+							img(class="img-responsive" src="/images/main-page/6.jpg")
+						h4.prices-item-title Риски
+						p.prices-item-text
+							| Риски бывают со стороны бизнеса и со стороны разработки. Суть всех рисков от бизнеса: созданный функционал не приносит денег. У разработки риски технические - в какой-то момент может оказаться, что запланированный функционал реализовать невозможно (т.е. слишком дорого). Перед разработкой проекта мы снижаем и те и другие.
+				.col-md-6.clearfix
+					.prices-item
+						.prices-img-wrapper
+							img(class="img-responsive" src="/images/main-page/6.jpg")
+						h4.prices-item-title Порядок оплаты
+						p.prices-item-text
+							| Не все выполняют условия оплаты добросовестно. Поэтому, при первом знакомстве, мы работаем по предоплате 50%. Всю работу мы разбиваем на этапы объёмом не более одной рабочей недели. Обычно спустя месяц мы знакомимся ближе и работаем на более свободных условиях оплаты.
 
-								.col-sm-6.col-md-4.col-lg-6
-									.speech-item.clearfix
-										.speech-img-wrapper
-											a(href="#")
-												img(class="img-responsive" src="/images/main-page/6.jpg")
+		.portfolio-section
+			.text-title-wrapper
+				h2.portfolio-title.text-title.text-center Проекты
 
-										a(class="speech-item-link" href="#")
-											h3.speech-item-title Коллегам - студии, dev-teams
-										p.speech-text
-											| Разработка - наше самое сильное место. Вы берёте на себя работу с клиентом и проектирование, мы - разработку.
-											| Умеем работать через трекеры, контроль версий и code-review.
+			.row
+				.col-sm-6.col-md-4
+					.portfolio-item
+						.portfolio-img-wrapper
+							img(class="img-responsive" src="/images/main-page/projects/stroyprombeton.png")
+						h4.portfolio-item-title <a href='http://www.stroyprombeton.ru/' target='_nofollow'>Завод ЖБИ</a> - магазин строй-изделий
+						ul.portfolio-list.list-unstyled
+							li.portfolio-list-item Перенесли: modx -> symfony2
+							li.portfolio-list-item Улучшили поиск
+							li.portfolio-list-item Динамическая корзина
+							li.portfolio-list-item Карта РФ с объектами
+							li.portfolio-list-item Подняли уровень качества
+							li.portfolio-list-item Поддержка
 
-								.col-sm-6.col-md-4.col-lg-6
-									.speech-item.clearfix
-										.speech-img-wrapper
-											a(href="#")
-												img(class="img-responsive" src="/images/main-page/7.jpg")
-
-										a(class="speech-item-link" href="#")
-											h3.speech-item-title Стартапам
-										p.speech-text
-											| Сейчас стартапы часто связаны с технологичным проектами. У нас есть опыт в таких. Мы уже создали пару нагруженных сайтов с небольшими веб-приложениями внутри.
-											| По проектированию и технологиям нас консультируют пара инсайдеров крупных IT-компаний (аутсорс, продуктовые).
-
-								.col-sm-6.col-md-4.col-lg-6
-									.speech-item.clearfix
-										.speech-img-wrapper
-											a(href="#")
-												img(class="img-responsive" src="/images/main-page/8.jpg")
-
-										a(class="speech-item-link" href="#")
-											h3.speech-item-title Инвесторам
-										p.speech-text
-											| У нас есть бизнес-модели пары недорогих сервисов. Мы можем их реализовать: команда, опыт в бизнесе, в разработке, консультанты по технологиям и запуску продуктов.
-											| Если вас интересуют вложения - пишите, мы обсудим условия.
-
-								.col-sm-6.col-md-4.col-lg-6
-									.speech-item.clearfix
-										.speech-img-wrapper
-											a(href="#")
-												img(class="img-responsive" src="/images/main-page/9.jpg")
-
-										a(class="speech-item-link" href="#")
-											h3.speech-item-title Поддержка - готовым проектам
-										p.speech-text
-											| Если вашему проекту/приложению не нужны серьёзные улучшения, а нужны небольшие правки в любой момент, возьмём его на поддержку по цене 1500-3000 руб/час специалиста.
-
-						//- .infographic-section
-							//- img(class="img-responsive" src="" alt="Инфографика")
-
-						.prices-section
-							.text-title-wrapper
-								h2.prices-title.text-title.text-center Цены
-								h4.prices-subtitle.text-center откуда берутся и как мы их считаем
-							.row
-								.col-md-6.clearfix
-									.prices-item
-										.prices-img-wrapper
-											img(class="img-responsive" src="/images/main-page/6.jpg")
-										h4.prices-item-title Почасовая оплата
-										p.prices-item-text
-											| Все наши цены так или иначе упираются в часы работы, что мы затратим на проект. Стоимость зависит от сложности проекта. И сложности клиента, конечно.
-								.col-md-6.clearfix
-									.prices-item
-										.prices-img-wrapper
-											img(class="img-responsive" src="/images/main-page/6.jpg")
-										h4.prices-item-title Работа с клиентом
-										p.prices-item-text
-											| От 30% до 80% стоимости (работы) проекта уходит на попытки понять что же нужно клиенту. Если вы хорошо представляете что вам нужно и примерно знаете о порядке цен на работу в ИТ, этот этап пройдёт для вас быстро и дешёво. Тогда проект обойдётся вам дешевле на 30-80%.
-								.col-md-6.clearfix
-									.prices-item
-										.prices-img-wrapper
-											img(class="img-responsive" src="/images/main-page/6.jpg")
-										h4.prices-item-title Риски
-										p.prices-item-text
-											| Риски бывают со стороны бизнеса и со стороны разработки. Суть всех рисков от бизнеса: созданный функционал не приносит денег. У разработки риски технические - в какой-то момент может оказаться, что запланированный функционал реализовать невозможно (т.е. слишком дорого). Перед разработкой проекта мы снижаем и те и другие.
-								.col-md-6.clearfix
-									.prices-item
-										.prices-img-wrapper
-											img(class="img-responsive" src="/images/main-page/6.jpg")
-										h4.prices-item-title Порядок оплаты
-										p.prices-item-text
-											| Не все выполняют условия оплаты добросовестно. Поэтому, при первом знакомстве, мы работаем по предоплате 50%. Всю работу мы разбиваем на этапы объёмом не более одной рабочей недели. Обычно спустя месяц мы знакомимся ближе и работаем на более свободных условиях оплаты.
-
-						.portfolio-section
-							.text-title-wrapper
-								h2.portfolio-title.text-title.text-center Проекты
-
-							.row
-								.col-sm-6.col-md-4
-									.portfolio-item
-										.portfolio-img-wrapper
-											img(class="img-responsive" src="/images/main-page/projects/stroyprombeton.png")
-										h4.portfolio-item-title <a href='http://www.stroyprombeton.ru/' target='_nofollow'>Завод ЖБИ</a> - магазин строй-изделий
-										ul.portfolio-list.list-unstyled
-											li.portfolio-list-item Перенесли: modx -> symfony2
-											li.portfolio-list-item Улучшили поиск
-											li.portfolio-list-item Динамическая корзина
-											li.portfolio-list-item Карта РФ с объектами
-											li.portfolio-list-item Подняли уровень качества
-											li.portfolio-list-item Поддержка
-
-								.col-sm-6.col-md-4
-									.portfolio-item
-										.portfolio-img-wrapper
-											img(class="img-responsive" src="/images/main-page/projects/shopelectro.png")
-										h4.portfolio-item-title <a href='https://www.shopelectro.ru/' target='_nofollow'>Магазин</a> элементов питания
-										ul.portfolio-list.list-unstyled
-											li.portfolio-list-item Разработали сайт
-											li.portfolio-list-item Связали базу товаров сайта с 1С (интеграция)
-											li.portfolio-list-item Прайс-лист для оптовиков excel-формата
-											li.portfolio-list-item Эффективность магазина
-											li.portfolio-list-item Подняли уровень качества
-											li.portfolio-list-item Поддержка
+				.col-sm-6.col-md-4
+					.portfolio-item
+						.portfolio-img-wrapper
+							img(class="img-responsive" src="/images/main-page/projects/shopelectro.png")
+						h4.portfolio-item-title <a href='https://www.shopelectro.ru/' target='_nofollow'>Магазин</a> элементов питания
+						ul.portfolio-list.list-unstyled
+							li.portfolio-list-item Разработали сайт
+							li.portfolio-list-item Связали базу товаров сайта с 1С (интеграция)
+							li.portfolio-list-item Прайс-лист для оптовиков excel-формата
+							li.portfolio-list-item Эффективность магазина
+							li.portfolio-list-item Подняли уровень качества
+							li.portfolio-list-item Поддержка
 
 
-								.col-sm-6.col-md-4
-									.portfolio-item.portfolio-item-last
-										.portfolio-img-wrapper
-											img(class="img-responsive" src="/images/main-page/projects/stk-metal.png")
-										h4.portfolio-item-title <a href='http://www.stk-metal.ru/' target='_nofollow'>Завод МК</a> - магазин металлоизделий
-										ul.portfolio-list.list-unstyled
-											li.portfolio-list-item Разработали сайт
-											li.portfolio-list-item Стандартный функционал магазина
-
-		.footer
-			block footer
-				//-.footer-inner
-					.container
-						.row
-							.col-sm-6.col-md-3
-								.footer-item
-									h4.footer-item-title Как работать
-									ul.footer-list.list-unstyled
-										li.footer-list-item
-											a(class="footer-link" href="#") Порядок оплаты
-										li.footer-list-item
-											a(class="footer-link" href="#") Почасовая оплата
-										li.footer-list-item
-											a(class="footer-link" href="#") Пример договора
-
-							.col-sm-6.col-md-3
-								.footer-item
-									h4.footer-item-title Проекты
-									ul.footer-list.list-unstyled
-										li.footer-list-item
-											a(class="footer-link" href="#") Магазин строй-изделий - ЖБИ
-										li.footer-list-item
-											a(class="footer-link" href="#") Магазин элементов питания
-										li.footer-list-item
-											a(class="footer-link" href="#") Магазин металлоизделий
-
-						
-							.col-sm-6.col-md-3
-								.footer-item
-									h4.footer-item-title Чем занимаемся
-									ul.footer-list.list-unstyled
-										li.footer-list-item
-											a(class="footer-link" href="#") Программистам
-										li.footer-list-item
-											a(class="footer-link" href="#") Малому бизнессу
-										li.footer-list-item
-											a(class="footer-link" href="#") Стартапам
-										li.footer-list-item
-											a(class="footer-link" href="#") Коллегам
-										li.footer-list-item
-											a(class="footer-link" href="#") Поддержка
-
-							.col-sm-6.col-md-3
-								.footer-item
-									h4.footer-item-title Как работать
-									ul.footer-list.list-unstyled
-										li.footer-list-item
-											a(class="footer-link" href="#") Команда
-										li.footer-list-item
-											a(class="footer-link" href="#") Вакансии
-										li.footer-list-item
-											a(class="footer-link" href="#") Фото офиса
-
-				.footer-copyright.text-center © Фидалс 2016
-
-		block scripts
-			script(src='/js/libs/jquery-2.2.0.min.js')
-			script(src='/js/libs/jquery.mmenu.min.all.js')
-			script(src='/js/common/main.js')
+				.col-sm-6.col-md-4
+					.portfolio-item.portfolio-item-last
+						.portfolio-img-wrapper
+							img(class="img-responsive" src="/images/main-page/projects/stk-metal.png")
+						h4.portfolio-item-title <a href='http://www.stk-metal.ru/' target='_nofollow'>Завод МК</a> - магазин металлоизделий
+						ul.portfolio-list.list-unstyled
+							li.portfolio-list-item Разработали сайт
+							li.portfolio-list-item Стандартный функционал магазина

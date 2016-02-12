@@ -1,38 +1,41 @@
 // ================================================================
 // REQUIRES
 // ================================================================
-var gulp         = require('gulp'),
-	jade         = require('gulp-jade'),
-	sass         = require('gulp-sass'),
-	clean        = require('gulp-clean');
-	chmod        = require('gulp-chmod');
+var gulp		 = require('gulp'),
+	jade		 = require('gulp-jade'),
+	sass		 = require('gulp-sass'),
 	sourcemaps   = require('gulp-sourcemaps'),
 	combineMedia = require('gulp-combine-mq'),
-	rename       = require('gulp-rename'),
-	minifyCSS    = require('gulp-minify-css'),
-	plumber      = require('gulp-plumber'),
-	sequence     = require('run-sequence'),
-	spritePNG    = require('gulp.spritesmith'),
-	connect      = require('gulp-connect');
+	concat       = require('gulp-concat'),
+	uglify       = require('gulp-uglify'),
+	rename	     = require('gulp-rename'),
+	minifyCSS	 = require('gulp-cssnano'),
+	plumber	     = require('gulp-plumber'),
+	//spritePNG	 = require('gulp.spritesmith'),
+	connect	     = require('gulp-connect'),
+	marked       = require('marked'),
+	del          = require('del'),
+	es           = require('event-stream'),
+	sequence	 = require('run-sequence');
 
 // ================================================================
 // PATHS
 // ================================================================
-//var htmlFile         = 'contacts',
-var	htmlFile         = 'index',
-	styleFile        = 'common/styles',
-	//styleFile        = 'pages/blog',
-	img_folder       = './dist/images/',
+//var htmlFile    = 'contacts',
+var	htmlFile    = 'index',
+	styleFile	= 'common/styles',
+	//styleFile	= 'pages/blog',
+	img_folder	= './dist/images/',
 
 	src_sass_folder  = './src/scss/',
-	dist_css_folder  = './dist/css/',
 	src_html_folder  = './src/',
+	src_js_folder	 = './src/js/',
+	dist_css_folder  = './dist/css/',
 	dist_html_folder = './dist',
-	src_js_folder    = './src/js/',
 
-	jade_file        = src_html_folder + htmlFile  + '.jade',
-	sass_file        = src_sass_folder + styleFile + '.scss',
-	css_file         = dist_css_folder + styleFile + '.css';
+	jade_file = src_html_folder + htmlFile  + '.jade',
+	sass_file = src_sass_folder + styleFile + '.scss',
+	css_file  = dist_css_folder + styleFile + '.css';
 
 // ================================================================
 // BUILD
@@ -42,6 +45,7 @@ gulp.task('build', function(callback) {
 		'clean',
 		'jade-build',
 		'sass-build',
+		'fonts-build',
 		'css-build',
 		'img-build',
 		'js-build',
@@ -53,41 +57,39 @@ gulp.task('build', function(callback) {
 // CLEAN
 // ================================================================
 gulp.task('clean', function () {
-    return gulp.src([
-    		'./dist/*.html',
-    		'./dist/css/*.css',
-    		'./dist/js/**/*.js',
-    		'./dist/images/**/*'
-		], {
-    		read : false
-    	})
-        .pipe( clean() );
+	return del([
+		// here we use a globbing pattern to match everything inside the `mobile` folder
+		'dist/**/*'
+	]);
 });
 
 // ================================================================
 // HTML : build
 // ================================================================
 gulp.task('jade-build', function() {
-	gulp.src([
-			'./src/index.jade',
-			'./src/blog.jade',
-			'./src/blog-inner.jade',
-			'./src/contacts.jade',
-			'./src/projects.jade'
-		])
-		.pipe( jade({
-			pretty : true
-		}) )
+	return es.concat(
+		// Index page
+		gulp.src('./src/index.jade')
+			.pipe( jade({ pretty : true }) )
+			.pipe( gulp.dest('./dist/') ),
 
-		.pipe( gulp.dest( dist_html_folder ) );
+		// Static pages
+		gulp.src([ './src/pages/*.jade' ])
+			.pipe( jade({ pretty : true }) )
+			.pipe( gulp.dest( './dist/pages' ) ),
+
+		// Blog pages
+		gulp.src([ './src/blog/*.md' ])
+			.pipe( jade({ pretty : true }) )
+			.pipe( gulp.dest( './dist/blogs' ) )
+	);
 });
 
 // ================================================================
 // SASS : build
 // ================================================================
 gulp.task('sass-build', function() {
-	return gulp.src([
-			'./src/scss/common/styles.scss',
+	gulp.src([
 			'./src/scss/pages/blog.scss',
 			'./src/scss/pages/contacts.scss',
 			'./src/scss/pages/portfolio.scss'
@@ -95,14 +97,30 @@ gulp.task('sass-build', function() {
 		.pipe( sourcemaps.init() )
 		.pipe( sass() )
 		.pipe( sourcemaps.write('.') )
-		.pipe( gulp.dest('./dist/css') );
+		.pipe( gulp.dest('./dist/css')
+	);
+});
+
+// ================================================================
+// Fonts : build
+// ================================================================
+gulp.task('fonts-build', function() {
+	gulp.src([
+			'./src/scss/fonts/**/*'
+		])
+
+		.pipe( gulp.dest('./dist/css/fonts')
+	);
 });
 
 // ================================================================
 // CSS : build
 // ================================================================
 gulp.task('css-build', function() {
-	return gulp.src('./dist/css/*.css')
+	// Main styles file minification
+	gulp.src('./src/scss/common/styles.scss')
+		.pipe( sass() )
+
 		.pipe( combineMedia({
 			beautify: false
 		}) )
@@ -120,10 +138,46 @@ gulp.task('css-build', function() {
 // JS : build
 // ================================================================
 gulp.task('js-build', function() {
-	return gulp.src( './src/js/**/*' )
-		.pipe( chmod(772) )
+	return es.concat(
+		// Copy all js files
+		gulp.src('./src/js/**/*')
+			.pipe( gulp.dest( './dist/js' ) ),
 
-		.pipe( gulp.dest( './dist/js' ) );
+		// Vendors js for main page
+		gulp.src([
+				'./src/js/libs/jquery-2.2.0.min.js',
+				'./src/js/libs/jquery.mmenu.min.all.js'
+			])
+			.pipe( concat('vendor.js') )
+
+			.pipe( gulp.dest('dist/js/libs') )
+
+			.pipe( rename({
+				suffix: '.min'
+			}))
+
+			.pipe( uglify() )
+
+			.pipe( sourcemaps.write('./') )
+
+			.pipe( gulp.dest('dist/js/libs') ),
+
+		// main.min.js
+		gulp.src('./src/js/common/main.js')
+			.pipe( concat('main.js') )
+
+			.pipe( gulp.dest('dist/js/common') )
+
+			.pipe( rename({
+				suffix: '.min'
+			}))
+
+			.pipe( uglify() )
+
+			.pipe( sourcemaps.write('./') )
+
+			.pipe( gulp.dest('dist/js/common') )
+	);
 });
 
 // ================================================================
@@ -141,9 +195,7 @@ gulp.task('jade', function() {
 	gulp.src( jade_file )
 		.pipe( plumber() )
 
-		.pipe( jade({
-			pretty : true
-		}))
+		.pipe( jade({ pretty : true }))
 
 		.pipe( gulp.dest( dist_html_folder ) )
 
@@ -151,14 +203,7 @@ gulp.task('jade', function() {
 });
 
 // ================================================================
-// STYLES : Compiles current stylesheet
-// ================================================================
-gulp.task('styles', function(callback) {
-	sequence( 'sass', 'css', callback );
-});
-
-// ================================================================
-// SASS
+// SASS : Compiles current stylesheet
 // ================================================================
 gulp.task('sass', function () {
 	gulp.src( sass_file )
@@ -176,30 +221,10 @@ gulp.task('sass', function () {
 });
 
 // ================================================================
-// CSS
-// ================================================================
-gulp.task('css', function() {
-	return gulp.src( css_file )
-		.pipe( combineMedia({
-			log: true
-		}) )
-
-		.pipe( rename({
-			suffix: '.min'
-		}) )
-
-		.pipe( minifyCSS() )
-
-		.pipe( gulp.dest( dist_css_folder ) );
-});
-
-// ================================================================
-// JS
+// JS : Compiles current stylesheet
 // ================================================================
 gulp.task('js', function() {
 	return gulp.src( './src/js/**/*' )
-		.pipe( chmod(772) )
-
 		.pipe( gulp.dest( './dist/js' ) );
 });
 
@@ -212,9 +237,9 @@ gulp.task('retina', function() {
 	gulp.src( img_folder + 'sprite_source/' + sprite_name + '/*.png' )
 
 	.pipe( spritePNG({
-		imgName         : 'sprite-' + sprite_name + '.png',
-		cssName         : '../../' + src_sass_folder + 'framework/mixins/_sprite-' + sprite_name + '.scss',
-		padding         : 1,
+		imgName : 'sprite-' + sprite_name + '.png',
+		cssName : '../../' + src_sass_folder + 'framework/mixins/_sprite-' + sprite_name + '.scss',
+		padding : 1,
 		retinaSrcFilter : [ img_folder + 'sprite_source/' + sprite_name + '/*-2x.png' ],
 		retinaImgName   : 'sprite-' + sprite_name + '-2x.png'
 	}) )
@@ -244,10 +269,10 @@ gulp.task('png', function() {
 // LiveReload
 // ================================================================
 gulp.task('connect', function() {
-    connect.server({
-    	root       : 'dist',
-        livereload : true
-    });
+	connect.server({
+		root	   : 'dist',
+		livereload : true
+	});
 });
 
 // ================================================================
@@ -255,7 +280,7 @@ gulp.task('connect', function() {
 // ================================================================
 gulp.task('watch', function() {
 	gulp.watch( jade_file, ['jade'] );
-	gulp.watch( sass_file, ['styles'] );
+	gulp.watch( sass_file, ['sass'] );
 	gulp.watch( src_js_folder + '**/*', ['js'] );
 });
 

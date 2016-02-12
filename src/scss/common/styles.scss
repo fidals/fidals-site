@@ -1,7 +1,7 @@
 // ================================================================
 // Imports
 // ================================================================
-@import "reset.scss";
+//@import "reset.scss";
 @import "../libs/bootstrap.scss";
 @import "../libs/font-awesome.scss";
 @import "variables.scss";
@@ -335,7 +335,7 @@ body {
 
 	@include bp(min-width, 992px) {
 		&-item {
-			min-height: 445px;
+			min-height: 450px;
 		}
 
 		&-item-title {
@@ -391,7 +391,7 @@ body {
 
 	@include bp(min-width, 768px, max-width, 1199px) {
 		&-item {
-			min-height: 455px;
+			min-height: 550px;
 		}
 	}
 
@@ -428,9 +428,8 @@ body {
 		@extend %section-border;
 	}
 
-	&-img-wrapper {
-		float: left;
-		margin: 0 25px 10px 0;
+	&-item {
+		margin-bottom: 50px;
 	}
 
 	&-item-text {
@@ -442,16 +441,18 @@ body {
 			margin-bottom: 40px;
 		}
 
-		&-img-wrapper {
-		    width: 40%;
-		}
-
 		&-item-text {
 			overflow: hidden;
 		}
 	}
-}
 
+	@include bp(min-width, 992px, max-width, 1199px) {
+		&-img-wrapper {
+			float: left;
+			margin: 0 25px 10px 0;
+		}
+	}
+}
 // ================================================================
 // Portfolio section
 // ================================================================

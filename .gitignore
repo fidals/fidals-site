@@ -1,12 +1,5 @@
 dev-stuff
 node_modules/
-dist/**/*.jpg
-dist/**/*.gif
-dist/**/*.jpeg
-dist/**/*.png
-dist/**/*.html
-dist/**/*.js
-dist/**/*.css
 dist/
 *.css.map
 .idea/
