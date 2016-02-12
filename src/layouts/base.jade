@@ -1,0 +1,134 @@
+block vars
+	- var title = "Разработка | Фидалс";
+	- var bodyClass = "";
+	- var selectedLink = 'Главная';
+block menuItems
+	-
+		var menuItems = {
+			'Главная'  : '/',
+			'Блог'     : '/pages/blog.html',
+			'Проекты'  : '/pages/projects.html',
+			'Контакты' : '/pages/contacts.html'
+		}
+
+doctype html
+html
+	head
+		block meta
+			meta(charset='utf-8')
+			meta(http-equiv='X-UA-Compatible', content='IE=edge')
+			link(rel="apple-touch-icon", sizes="57x57", href="/images/apple-touch-icon-57x57.png")
+			link(rel="apple-touch-icon", sizes="60x60", href="/images/apple-touch-icon-60x60.png")
+			link(rel="apple-touch-icon", sizes="72x72", href="/images/apple-touch-icon-72x72.png")
+			link(rel="apple-touch-icon", sizes="76x76", href="/images/apple-touch-icon-76x76.png")
+			link(rel="apple-touch-icon", sizes="114x114", href="/images/apple-touch-icon-114x114.png")
+			link(rel="apple-touch-icon", sizes="120x120", href="/images/apple-touch-icon-120x120.png")
+			link(rel="apple-touch-icon", sizes="144x144", href="/images/apple-touch-icon-144x144.png")
+			link(rel="apple-touch-icon", sizes="152x152", href="/images/apple-touch-icon-152x152.png")
+			link(rel="apple-touch-icon", sizes="180x180", href="/images/apple-touch-icon-180x180.png")
+			link(rel="icon", type="image/png", href="/images/favicon-32x32.png", sizes="32x32")
+			link(rel="icon", type="image/png", href="/images/favicon-194x194.png", sizes="194x194")
+			link(rel="icon", type="image/png", href="/images/favicon-96x96.png", sizes="96x96")
+			link(rel="icon", type="image/png", href="/images/android-chrome-192x192.png", sizes="192x192")
+			link(rel="icon", type="image/png", href="/images/favicon-16x16.png", sizes="16x16")
+			link(rel="manifest", href="/images/manifest.json")
+			link(rel="mask-icon", href="/images/safari-pinned-tab.svg", color="#5bbad5")
+			link(rel="shortcut icon", href="/images/favicon.ico")
+			meta(name="msapplication-TileColor", content="#ffffff")
+			meta(name="msapplication-TileImage", content="/images/mstile-144x144.png")
+			meta(name="msapplication-config", content="/images/browserconfig.xml")
+			meta(name="theme-color", content="#ffffff")
+			title #{title}
+			meta(name='description', content='')
+			meta(name='viewport', content='width=device-width, initial-scale=1')
+
+		block styles
+			link(href='https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic', rel='stylesheet', type='text/css')
+			link(rel='stylesheet', href='/css/styles.min.css')
+
+	body(class="#{bodyClass}")
+		.page-wrapper
+			.header#header
+				block header
+					.container.header-container
+						a(class="header-toggle-menu", href="#menu")
+						nav#menu(style="display: none")
+							ul
+								each val, key in menuItems
+									li
+										if key === selectedLink
+											a.active(href=val)= key
+										else
+											a(href=val)= key
+						a(class="header-logo-link", href="/", rel="nofollow")
+							img(class="img-responsive" src="/images/logo.jpg" alt="FidAls" title="На главную")
+						ul.header-nav.list-unstyled
+							each val, key in menuItems
+								li.header-nav-item
+									if key === selectedLink
+										a.header-nav-link.active(href=val)= key
+									else
+										a.header-nav-link(href=val)= key
+						.header-contacts
+							p.header-contacts-item.header-contacts-phone
+								i(class="fa fa-phone")
+								a(class="header-contacts-link" href="tel:+78129061905") +7 (812) 906-19-05
+							p.header-contacts-item.header-contacts-email
+								i(class="fa fa-envelope")
+								a(class="header-contacts-link" href="mailto:info@fidals.com") info@fidals.com
+			.content
+				block content
+		.footer
+			block footer
+				//-.footer-inner
+					.container
+						.row
+							.col-sm-6.col-md-3
+								.footer-item
+									h4.footer-item-title Как работать
+									ul.footer-list.list-unstyled
+										li.footer-list-item
+											a(class="footer-link" href="#") Порядок оплаты
+										li.footer-list-item
+											a(class="footer-link" href="#") Почасовая оплата
+										li.footer-list-item
+											a(class="footer-link" href="#") Пример договора
+							.col-sm-6.col-md-3
+								.footer-item
+									h4.footer-item-title Проекты
+									ul.footer-list.list-unstyled
+										li.footer-list-item
+											a(class="footer-link" href="#") Магазин строй-изделий - ЖБИ
+										li.footer-list-item
+											a(class="footer-link" href="#") Магазин элементов питания
+										li.footer-list-item
+											a(class="footer-link" href="#") Магазин металлоизделий
+							.col-sm-6.col-md-3
+								.footer-item
+									h4.footer-item-title Чем занимаемся
+									ul.footer-list.list-unstyled
+										li.footer-list-item
+											a(class="footer-link" href="#") Программистам
+										li.footer-list-item
+											a(class="footer-link" href="#") Малому бизнессу
+										li.footer-list-item
+											a(class="footer-link" href="#") Стартапам
+										li.footer-list-item
+											a(class="footer-link" href="#") Коллегам
+										li.footer-list-item
+											a(class="footer-link" href="#") Поддержка
+							.col-sm-6.col-md-3
+								.footer-item
+									h4.footer-item-title Как работать
+									ul.footer-list.list-unstyled
+										li.footer-list-item
+											a(class="footer-link" href="#") Команда
+										li.footer-list-item
+											a(class="footer-link" href="#") Вакансии
+										li.footer-list-item
+											a(class="footer-link" href="#") Фото офиса
+				.footer-copyright.text-center © Фидалс 2016
+
+		block scripts
+			script(src='/js/libs/vendor.min.js')
+			script(src='/js/common/main.min.js')

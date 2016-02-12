@@ -1,0 +1,55 @@
+extends ../layouts/base
+
+block vars
+	- var title = "Проекты | Фидалс";
+	- var bodyClass = "portfolio";
+	- var selectedLink = 'Проекты';
+
+block append styles
+	link(rel="stylesheet", href="/css/portfolio.css")
+
+block content
+	.container
+		.portfolio
+			.text-title-wrapper
+				h2.portfolio-title.text-title.text-center Проекты
+
+			.row
+				.col-sm-6.col-md-4
+					.portfolio-item
+						.portfolio-img-wrapper
+							img(class="img-responsive img-center" src="/images/projects/beton.png")
+						h4.portfolio-item-title <a href='http://www.stroyprombeton.ru/' target='_nofollow'>Завод ЖБИ</a> - магазин строй-изделий
+						ul.portfolio-list.list-unstyled
+							li.portfolio-list-item Перенесли: modx -> symfony2
+							li.portfolio-list-item Улучшили поиск
+							li.portfolio-list-item Динамическая корзина
+							li.portfolio-list-item Карта РФ с объектами
+							li.portfolio-list-item Подняли уровень качества
+							li.portfolio-list-item Поддержка
+
+				.col-sm-6.col-md-4
+					.portfolio-item
+						.portfolio-img-wrapper
+							img(class="img-responsive img-center" src="/images/projects/shopelectro.png")
+						h4.portfolio-item-title <a href='https://www.shopelectro.ru/' target='_nofollow'>Магазин</a> элементов питания
+						ul.portfolio-list.list-unstyled
+							li.portfolio-list-item Разработали сайт
+							li.portfolio-list-item Связали базу товаров сайта с 1С (интеграция)
+							li.portfolio-list-item Прайс-лист для оптовиков excel-формата
+							li.portfolio-list-item Эффективность магазина
+							li.portfolio-list-item Подняли уровень качества
+							li.portfolio-list-item Поддержка
+
+				.col-sm-6.col-md-4
+					.portfolio-item
+						.portfolio-img-wrapper
+							img(class="img-responsive img-center" src="/images/projects/metal.png")
+						h4.portfolio-item-title <a href='http://www.stk-metal.ru/' target='_nofollow'>Завод МК</a> - магазин металлоизделий
+						ul.portfolio-list.list-unstyled
+							li.portfolio-list-item Разработали сайт
+							li.portfolio-list-item Стандартный функционал магазина
+
+block append scripts
+	script(src='/js/libs/jquery.fancybox.js')
+	script(src='/js/pages/contacts.js')

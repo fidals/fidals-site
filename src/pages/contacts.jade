@@ -1,0 +1,112 @@
+extends ../layouts/base
+
+block vars
+	- var title = "Фидалс | Контакты";
+	- var bodyClass = "contacts";
+	- var selectedLink = 'Контакты';
+
+block append styles
+	link(rel="stylesheet", href="/css/contacts.css")
+
+block content
+	.container
+		.contacts-wrapper
+			h1.prices-title.text-center Контакты
+			.text-title-wrapper
+				h2.text-title Адрес и телефоны
+
+			.contacts-block
+				.row
+					.col-lg-9
+						.contacts-map
+							script(type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=8SGvdhInBrErRwu7qARRTqKbYShyWq5m&width=702&height=384&lang=ru_RU&sourceType=constructor")
+
+					.col-lg-3
+						p.contacts-map-text
+							| Санкт-Петербург
+							br
+							| просп. Луначарского, 11к1
+							br
+							br
+						.contacts-phones
+							a(class="contacts-phones-link" href="tel:+78129061905")
+								| +7 (812) 906-19-05
+							p
+								| Мария:
+								| Работа с клиентами, любые вопросы
+
+							a(class="contacts-phones-link" href="tel:+79216304357")
+								| +7 921 630-43-57
+							p
+								| Андрей:
+								| Руководитель команды
+
+							//-
+								a(class="contacts-phones-link" href="tel:+79210000000")
+									| +7-921-000-00-00
+								p
+									| Лиза:
+									| Менеджер проектов
+
+		.office
+			.text-title-wrapper
+				h2.text-title Офис
+
+			.row
+				.col-md-4
+					.office-item
+						a(class="fancybox" rel="gallery1" href="/images/office/1.jpg" title="За этим столом мы обедаем каждую пятницу. Расслабляет")
+							img(class="img-responsive" src="/images/office/1s.jpg")
+						h4.office-item-title Стол с печеньками
+						p.office-text
+							| За этим столом мы обедаем каждую пятницу. Расслабляет
+
+				.col-md-4
+					.office-item
+						a(class="fancybox" rel="gallery1" href="/images/office/2.jpg" title="У каждого члена команды такое рабочее место")
+							img(class="img-responsive" src="/images/office/2s.jpg")
+						h4.office-item-title Рабочее место
+						p.office-text
+							| У каждого члена команды такое рабочее место
+
+				.col-md-4
+					.office-item
+						a(class="fancybox" rel="gallery1" href="/images/office/3.jpg" title="Наш временный офис. Рабочие места остались теми же")
+							img(class="img-responsive" src="/images/office/3s.jpg")
+						h4.office-item-title Офис на Озерках
+						p.office-text
+							| Наш временный офис. Рабочие места остались теми же
+
+		.contacts-info
+			.row
+				.col-md-6
+					.contacts-info-item.clearfix
+						.contacts-info-img-wrapper
+							img(class="img-responsive" src="/images/vacancy/4s.jpg")
+						h3.contacts-info-title Вакансии
+						p.contacts-info-text
+							| У нас (да и не только) хронический дефицит программистов. Если ищешь команду на фуллтайм, с радостью познакомимся и обсудим условия работы у нас.
+							| Для Прогеров мы делаем всё то же, что и другие компании:
+							ul.contacts-info-list.list-unstyled
+								li.contacts-info-list-item
+									| 20% рабочего времени мы прокачиваемся в технологиях
+								li.contacts-info-list-item
+									| Принципиально разные задачи и проекты - постоянный Challenge
+								li.contacts-info-list-item
+									| Поддерживаем дружескую атмосферу в тиме грязными HR-методами
+								li.contacts-info-list-item
+									| Офис со стандартными печеньками
+								li.contacts-info-list-item
+									| Чем занимаемся и примеры проектов ты можешь увидеть на главной.				
+									
+				.col-md-6
+					.contacts-info-item.clearfix
+						.contacts-info-img-wrapper
+							img(class="img-responsive" src="/images/vacancy/6s.jpg")
+						h3.contacts-info-title Бизнесу
+						p.contacts-info-text
+							| Мы решаем проблемы с приложениями, сайтами, бизнес-процессами и маркетингом. В России у 95% малых бизнесов полный провал по этим пунктам. С нами вы можете сосредоточиться на специфике бизнеса.
+
+block append scripts
+	script(src='/js/libs/jquery.fancybox.js')
+	script(src='/js/pages/contacts.js')
