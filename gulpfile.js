@@ -18,10 +18,10 @@ var gulp         = require('gulp'),
 // ================================================================
 // PATHS
 // ================================================================
-//var htmlFile         = 'contacts',
-var	htmlFile         = 'index',
+var htmlFile         = 'contacts',
+//var	htmlFile         = 'index',
 	styleFile        = 'common/styles',
-	//styleFile        = 'pages/blog',
+//	styleFile        = 'pages/blog',
 	img_folder       = './dist/images/',
 
 	src_sass_folder  = './src/scss/',

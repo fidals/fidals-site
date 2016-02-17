@@ -1,6 +1,6 @@
 $(function () {
 	$('.fancybox').fancybox({
-		type       : 'image', // to open placeholder images in fancybox;
+//		type       : 'image', // to open placeholder images in fancybox;
 		openEffect : 'elastic',
 		openSpeed  : 100,
 

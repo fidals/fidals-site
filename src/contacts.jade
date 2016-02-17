@@ -14,38 +14,68 @@ block content
 			h1.prices-title.text-center Контакты
 			.text-title-wrapper
 				h2.text-title Адрес и телефоны
+			.contacts-block
+				.row
+					.col-lg-9
+						.contacts-map
+							script(type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=yB5JvhXyVEvTvtPEQ_C2mJU0SlMF0sGM&lang=ru_RU&sourceType=constructor")
 
-			.row
-				.col-lg-9
-					.contacts-map
-						script(type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=yB5JvhXyVEvTvtPEQ_C2mJU0SlMF0sGM&lang=ru_RU&sourceType=constructor")
-
-				.col-lg-3
-					p.contacts-map-text
-						| Санкт-Петербург
-						br
-						| просп. Елизарова, 38А
-						br
-						br
-					.contacts-phones
-						a(class="contacts-phones-link" href="tel:+78129061905")
-							| +7 (812) 906-19-05
-						p
-							| Мария:
-							| Работа с клиентами, любые вопросы
-
-						a(class="contacts-phones-link" href="tel:+79216304357")
-							| +7 921 630-43-57
-						p
-							| Андрей:
-							| Руководитель команды
-
-						//-
-							a(class="contacts-phones-link" href="tel:+79210000000")
-								| +7-921-000-00-00
+					.col-lg-3
+						p.contacts-map-text
+							| Санкт-Петербург
+							br
+							| просп. Елизарова, 38А
+							br
+							br
+						.contacts-phones
+							a(class="contacts-phones-link" href="tel:+78129061905")
+								| +7 (812) 906-19-05
 							p
-								| Лиза:
-								| Менеджер проектов
+								| Мария:
+								| Работа с клиентами, любые вопросы
+
+							a(class="contacts-phones-link" href="tel:+79216304357")
+								| +7 (921) 630-43-57
+							p
+								| Андрей:
+								| Руководитель команды
+
+							//-
+								a(class="contacts-phones-link" href="tel:+79210000000")
+									| +7-921-000-00-00
+								p
+									| Лиза:
+									| Менеджер проектов
+
+
+			h3.contacts-info-title.text-center Как к нам добраться
+			.contacts-timing-map
+				.row
+					.col-lg-6
+						h4.contacts-h4 От метро Ломоносовская
+						p Автобусы: 8, 8б, 95
+						p Маршрутки: К16, К365
+						p
+							|Остановки:
+							|“пр-т Елизарова”,
+							|ст. м. “Елизаровская”
+						a(class="fancybox" href="#ymap-canvas")
+							img(class="img-responsive" src="https://api-maps.yandex.ru/services/constructor/1.0/static/?sid=-G6xUycNDOp6bvJXcZwjv2c70ccFzTg_&width=500&lang=ru_RU&sourceType=constructor" alt="")
+						#ymap-canvas
+							script(type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=3PEknNu098CB4IUjRvVK-6v8O-dywt6Z&width=957&height=563&lang=ru_RU&sourceType=constructor")
+					.col-lg-6
+						h4.contacts-h4
+							|От метро “Площадь
+							|Александра Невского”
+						p Автобусы: 8, 8В
+						p Маршрутки: К8, К16, К53А
+						p
+							|Остановки:
+							|“ул. Седова”,
+							|“пр-т Елизарова”,
+							|ст. м. “Елизаровская”
+						a(class="fancybox" href="/images/maps/elizar-main.jpg")
+							img(class="img-responsive" src="images/maps/elizar-mini.jpg")
 
 		.office
 			.text-title-wrapper
@@ -67,6 +97,14 @@ block content
 						h4.office-item-title Рабочее место
 						p.office-text
 							| У каждого члена команды такое рабочее место
+				.col-md-4
+					.office-item
+						a(class="fancybox" rel="gallery1" href="/images/office/3.jpg" title="Наш временный офис. Рабочие места остались теми же")
+							img(class="img-responsive" src="/images/office/3s.jpg")
+						h4.office-item-title Офис на Озерках
+						p.office-text
+							| Наш временный офис. Рабочие места остались теми же
+						
 
 				//-
 					.col-md-4
