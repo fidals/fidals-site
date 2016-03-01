@@ -13,7 +13,7 @@ var gulp		 = require('gulp'),
 	plumber	     = require('gulp-plumber'),
 	//spritePNG	 = require('gulp.spritesmith'),
 	connect	     = require('gulp-connect'),
-	marked       = require('marked'),
+	marked       = require('jstransformer')(require('jstransformer-marked')),
 	del          = require('del'),
 	es           = require('event-stream'),
 	sequence	 = require('run-sequence');
@@ -78,7 +78,7 @@ gulp.task('jade-build', function() {
 			.pipe( gulp.dest( './dist/pages' ) ),
 
 		// Blog pages
-		gulp.src([ './src/blog/*.md' ])
+		gulp.src([ './src/blog/*.jade' ])
 			.pipe( jade({ pretty : true }) )
 			.pipe( gulp.dest( './dist/blog' ) )
 	);

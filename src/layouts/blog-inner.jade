@@ -4,6 +4,7 @@ extends ./base
 block vars
 	- var bodyClass = "blog-inner";
 	- var selectedLink = 'Блоги';
+	- var date = '25.01.2016';
 
 block append styles
 	link(rel="stylesheet", href="/css/blog.css")
@@ -18,4 +19,4 @@ block content
 
 					p.blog-item-data.clearfix
 						i(class="fa fa-calendar-check-o")
-						span.blog-item-date 25.01.2016
+						span.blog-item-date= date

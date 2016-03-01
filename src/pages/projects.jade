@@ -1,55 +1,131 @@
-extends ../layouts/base
+extends ../layouts/projects-list
+
+// В этом документе данные для списка блогов
 
 block vars
-	- var title = "Проекты | Фидалс";
-	- var bodyClass = "portfolio";
+	- var title = "Фидалс | Проекты";
 	- var selectedLink = 'Проекты';
+	-
+		var projects = {
+			shops: {
+				title: 'Интернет-магазины',
+				items: {
+					stroyprombeton: {
+						img: '/images/projects/beton.png',
+						alias: '/blog/stb-project.html',
+						title: '<a href="http://www.stroyprombeton.ru/" target="_nofollow">Завод ЖБИ</a> - магазин строй-изделий',
+						text: [
+							'Перенесли: modx -> symfony2',
+							'Улучшили поиск',
+							'Динамическая корзина',
+							'Карта РФ с объектами',
+							'Подняли уровень качества',
+							'Поддержка'
+						]
+					},
 
-block append styles
-	link(rel="stylesheet", href="/css/portfolio.css")
+					shopelectro: {
+						img: '/images/projects/shopelectro.png',
+						alias: '/blog/se-project.html',
+						title: '<a href="https://www.shopelectro.ru/" target="_nofollow">Магазин</a> элементов питания',
+						text: [
+							'Разработали сайт',
+							'Связали базу товаров сайта с 1С (интеграция)',
+							'Прайс-лист для оптовиков excel-формата',
+							'Эффективность магазина',
+							'Подняли уровень качества',
+							'Поддержка'
+						]
+					},
 
-block content
-	.container
-		.portfolio
-			.text-title-wrapper
-				h2.portfolio-title.text-title.text-center Проекты
+					stk_metal: {
+						img: '/images/projects/metal.png',
+						alias: '#',
+						title: '<a href="http://www.stk-metal.ru/" target="_nofollow">Завод МК</a> - магазин металлоизделий',
+						text: [
+							'Разработали сайт',
+							'Стандартный функционал магазина',
+							'Поддержка'
+						]
+					}
+				}
+			},
 
-			.row
-				.col-sm-6.col-md-4
-					.portfolio-item
-						.portfolio-img-wrapper
-							img(class="img-responsive img-center" src="/images/projects/beton.png")
-						h4.portfolio-item-title <a href='http://www.stroyprombeton.ru/' target='_nofollow'>Завод ЖБИ</a> - магазин строй-изделий
-						ul.portfolio-list.list-unstyled
-							li.portfolio-list-item Перенесли: modx -> symfony2
-							li.portfolio-list-item Улучшили поиск
-							li.portfolio-list-item Динамическая корзина
-							li.portfolio-list-item Карта РФ с объектами
-							li.portfolio-list-item Подняли уровень качества
-							li.portfolio-list-item Поддержка
+			company_sites: {
+				title: 'Сайты для компании',
+				items: {
+				
+					ff78: {
+						img: '/images/projects/ff78.png',
+						alias: '#',
+						title: '<a href="http://ff78-decor.ru/" target="_nofollow">Флористика</a> - оформление свадеб',
+						text: [
+							'Разработали сайт',
+							'Проектировали через прототипы',
+							'Адаптивная вёрстка',
+							'Поддержка'
+						]
+					},
+				
+					energo: {
+						img: '/images/projects/energo.png',
+						alias: '#',
+						title: '<a href="http://stkm-energo.ru/" target="_nofollow">СТКМ Энерго</a> - конструкции для электросетей',
+						text: [
+							'Разработали сайт',
+							'Адаптивная вёрстка',
+							'Поддержка'
+						]
+					},
 
-				.col-sm-6.col-md-4
-					.portfolio-item
-						.portfolio-img-wrapper
-							img(class="img-responsive img-center" src="/images/projects/shopelectro.png")
-						h4.portfolio-item-title <a href='https://www.shopelectro.ru/' target='_nofollow'>Магазин</a> элементов питания
-						ul.portfolio-list.list-unstyled
-							li.portfolio-list-item Разработали сайт
-							li.portfolio-list-item Связали базу товаров сайта с 1С (интеграция)
-							li.portfolio-list-item Прайс-лист для оптовиков excel-формата
-							li.portfolio-list-item Эффективность магазина
-							li.portfolio-list-item Подняли уровень качества
-							li.portfolio-list-item Поддержка
+					modul: {
+						img: '/images/projects/modul.png',
+						alias: '#',
+						title: '<a href="http://xn----htbqgdmrio5g.xn--p1ai/" target="_nofollow">ГК СТК-Модуль</a> - визитка группы строительных компаний',
+						text: [
+							'Разработали сайт',
+							'Адаптивная вёрстка',
+							'Поддержка'
+						]
+					},
+					
+					media_concern: {
+						img: '/images/projects/concern.png',
+						alias: '#',
+						title: '<a href="http://www.media-concern.ru/" target="_nofollow">Организация мероприятий</a>',
+						text: [
+							'Разработали сайт',
+							'Поддержка',
+							'У сайта 3000 страниц'
+						]
+					},
 
-				.col-sm-6.col-md-4
-					.portfolio-item
-						.portfolio-img-wrapper
-							img(class="img-responsive img-center" src="/images/projects/metal.png")
-						h4.portfolio-item-title <a href='http://www.stk-metal.ru/' target='_nofollow'>Завод МК</a> - магазин металлоизделий
-						ul.portfolio-list.list-unstyled
-							li.portfolio-list-item Разработали сайт
-							li.portfolio-list-item Стандартный функционал магазина
+					amtok: {
+						img: '/images/projects/amtok.png',
+						alias: '#',
+						title: '<a href="http://www.amtok.ru/" target="_nofollow">ТМ Блоков питания</a> - торговая марка',
+						text: [
+							'Разработали сайт',
+						]
+					},
 
-block append scripts
-	script(src='/js/libs/jquery.fancybox.js')
-	script(src='/js/pages/contacts.js')
+					beston: {
+						img: '/images/projects/beston.png',
+						alias: '#',
+					title: '<a href="http://www.beston-rus.ru/" target="_nofollow">ТМ Аккумуляторов</a> - торговая марка',
+						text: [
+							'Разработали сайт'
+						]
+					},
+
+					ass: {
+						img: '/images/projects/ass.png',
+						alias: '#',
+						title: '<a href="http://www.avtospecservis.ru/" target="_nofollow">Ремонт грузовиков</a> - станция обслуживания грузовиков',
+						text: [
+							'Разработали сайт'
+						]
+					},
+				}
+			}
+		}
