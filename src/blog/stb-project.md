@@ -1,5 +1,5 @@
-# Магазин элементов питания
-**Проект** - [shopelectro.ru](https://www.shopelectro.ru)
+# ЖБИ изделия
+**Проект** - [stroyprombeton.ru](http://www.stroyprombeton.ru)
 <br><br>
 
 - [Сроки](#period)
