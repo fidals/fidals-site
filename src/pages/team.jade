@@ -1,0 +1,8 @@
+extends ../layouts/blog-inner
+
+block vars
+	- var title = "Про команду | Фидалс";
+	- var date = '17.03.2016';
+
+block blog-content
+	include:marked ./team.md

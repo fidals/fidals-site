@@ -16,6 +16,10 @@
 	min-height: 400px;
 }
 
+.blogs-wrapper {
+	text-align: justify;
+}
+
 .blog {
 	&-item {
 		border-bottom: 1px solid $c-section-border;
