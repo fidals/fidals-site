@@ -12,7 +12,7 @@
 // ================================================================
 // Vars
 // ================================================================
-$header-height : 75px;
+$header-height : 77px;
 //$footer-height : 310px; - расскоментируй, когда появится Подвал
 $footer-height : 65px;
 
@@ -175,6 +175,9 @@ body {
 			padding: 0 0 0 10px;
 			text-decoration: none;
 		}
+		p {
+			margin: 0 0 3px;
+		}
 	}
 
 	&-contacts-item {
@@ -187,6 +190,7 @@ body {
 		}
 	}
 
+
 	&-container {
 		height: 100%;
 	}
@@ -194,17 +198,25 @@ body {
 	@include dev(mob) {
 		&-logo-link {
 			bottom: 0;
-			left: 0;
+			left: -46px;
 			margin: auto;
 			position: absolute;
 			right: 0;
 			top: 0;
 		}
+
+		&-contacts {
+			font-size: $f-size-base - 2;
+		}
 	}
 
 	@include bp(max-width, 440px) {
 		&-logo-link {
-			left: -130px;
+			left: -145px;
+		}
+
+		&-contacts {
+			font-size: $f-size-base - 2;
 		}
 	}
 
@@ -327,6 +339,12 @@ body {
 		}
 	}
 
+	@include bp(min-width, 768px, max-width, 1199px) {
+		&-item {
+			min-height: 604px;
+		}
+	}
+
 	@include bp(max-width, 991px) {
 		&-item-title {
 			font-size: $f-size-base + 1;
@@ -335,7 +353,7 @@ body {
 
 	@include bp(min-width, 992px) {
 		&-item {
-			min-height: 450px;
+			min-height: 537px;
 		}
 
 		&-item-title {
@@ -391,7 +409,7 @@ body {
 
 	@include bp(min-width, 768px, max-width, 1199px) {
 		&-item {
-			min-height: 550px;
+			min-height: 703px;
 		}
 	}
 
@@ -406,7 +424,7 @@ body {
 	@include bp(min-width, 1200px) {
 		&-item {
 			margin-bottom: 40px;
-			min-height: 542px;
+			min-height: 607px;
 		}
 	}
 }
@@ -465,7 +483,7 @@ body {
 		@extend %box-transparent;
 		@include trans;
 		margin: 0 auto 30px;
-		min-height: 445px;
+		min-height: 491px;
 
 		&:hover {
 			border-color: $c-box-border-hover;
