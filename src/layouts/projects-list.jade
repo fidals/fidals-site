@@ -1,29 +1,29 @@
 extends ./base
 
 block vars
-	- var bodyClass = "portfolio";
+  - var bodyClass = "portfolio";
 
 block append styles
-	link(rel="stylesheet", href="/css/portfolio.css")
+  link(rel="stylesheet", href="/css/pages.min.css")
 
 block content
-	.container
-			each unit in projects
-				.portfolio
-					.text-title-wrapper
-						h2.portfolio-title.text-title.text-center= unit.title
-					.row
-						each item, index in unit.items
-							.col-sm-6.col-md-4
-								.portfolio-item
-									.portfolio-img-wrapper
-										a(href=item.alias)
-											img(class="img-responsive img-center" src=item.img)
-									h4.portfolio-item-title!= item.title
-									ul.portfolio-list.list-unstyled
-										each thesis in item.text
-											li.portfolio-list-item!= thesis
+  .container
+    each unit in projects
+      .portfolio
+        .text-title-wrapper
+          h2.portfolio-title.text-title.text-center= unit.title
+        .row
+          each item, index in unit.items
+            .col-sm-6.col-md-4
+              .portfolio-item
+                .portfolio-img-wrapper
+                  a(href=item.alias)
+                    img(class="img-responsive img-center" src=item.img)
+                h4.portfolio-item-title!= item.title
+                ul.portfolio-list.list-unstyled
+                  each thesis in item.text
+                    li.portfolio-list-item!= thesis
 
 block append scripts
-	script(src='/js/libs/jquery.fancybox.js')
-	script(src='/js/pages/contacts.js')
+  script(src='/js/libs/jquery.fancybox.js')
+  script(src='/js/pages/contacts.js')
