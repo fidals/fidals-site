@@ -341,7 +341,6 @@ body {
   @include dev(mob) {
     &-item {
       margin: 0 auto 35px;
-      max-width: 320px;
     }
   }
 
@@ -365,6 +364,12 @@ body {
     &-item-title {
       font-size: $f-size-base + 8;
       min-height: 76px;
+    }
+  }
+
+  @include bp(min-width, 1999px) {
+    &-item {
+      max-width: 320px;
     }
   }
 }

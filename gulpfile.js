@@ -21,14 +21,13 @@ var gulp = require('gulp'),
 // PATHS
 // ================================================================
 var htmlFile = 'index',
-//var	htmlFile    = 'index',
-  imgSrcFolder = './src/images/**/*',
-  imgDistFolder = './dist/images',
+//var htmlFile = 'index',
+  imgSrcDir = './src/images/**/*',
+  imgDistDir = './dist/images',
 
-  src_html_folder = './src/',
-  src_js_folder = './src/js/',
-  dist_html_folder = './dist/pages/',
-  jade_file = src_html_folder + htmlFile + '.jade';
+  jsSrcDir = './src/js/',
+  htmlDistDir = './dist/pages/',
+  jadeFile = './src/' + htmlFile + '.jade';
 
 var sassCommon = [
   './src/scss/common/styles.scss',
@@ -49,7 +48,7 @@ gulp.task('build', function(callback) {
     'jade-build',
     'sass',
     'fonts-build',
-    'img-build',
+    'images',
     'js-build',
     callback
   );
@@ -143,65 +142,52 @@ gulp.task('js-build', function() {
       './src/js/libs/jquery.mmenu.min.all.js'
     ])
       .pipe(concat('vendor.js'))
-
       .pipe(gulp.dest('dist/js/libs'))
-
       .pipe(rename({
         suffix: '.min'
       }))
-
       .pipe(uglify())
-
       .pipe(sourcemaps.write('./'))
-
       .pipe(gulp.dest('dist/js/libs')),
 
     // main.min.js
     gulp.src('./src/js/common/main.js')
       .pipe(concat('main.js'))
-
       .pipe(gulp.dest('dist/js/common'))
-
       .pipe(rename({
         suffix: '.min'
       }))
-
       .pipe(uglify())
-
       .pipe(sourcemaps.write('./'))
-
       .pipe(gulp.dest('dist/js/common'))
   );
 });
 
 // ================================================================
+// JS : Copies scripts
+// ================================================================
+gulp.task('js', function() {
+  return gulp.src('./src/js/**/*')
+    .pipe(gulp.dest('./dist/js'));
+});
+
+// ================================================================
 // Images : build
 // ================================================================
-gulp.task('img-build', function() {
-  return gulp.src(imgSrcFolder)
-    .pipe(gulp.dest(imgDistFolder));
+gulp.task('images', function() {
+  return gulp.src(imgSrcDir)
+    .pipe(gulp.dest(imgDistDir));
 });
 
 // ================================================================
 // HTML : Compiles current jade file
 // ================================================================
 gulp.task('jade', function() {
-  gulp.src(jade_file)
+  gulp.src(jadeFile)
     .pipe(plumber())
-
-    .pipe(jade({pretty: true}))
-
-    .pipe(gulp.dest(dist_html_folder))
-
+    .pipe(jade({ pretty: true }))
+    .pipe(gulp.dest(htmlDistDir))
     .pipe(connect.reload());
-});
-
-// ================================================================
-// JS : Compiles current stylesheet
-// ================================================================
-gulp.task('js', function() {
-  return gulp.src('./src/js/**/*')
-    .pipe(gulp.dest('./dist/js'));
 });
 
 // ================================================================
@@ -210,7 +196,7 @@ gulp.task('js', function() {
 gulp.task('connect', function() {
   connect.server({
     root: 'dist',
-    livereload: true
+    livereload: true,
   });
 });
 
@@ -218,9 +204,9 @@ gulp.task('connect', function() {
 // WATCH
 // ================================================================
 gulp.task('watch', function() {
-  gulp.watch(jade_file, ['jade']);
+  gulp.watch(jadeFile, ['jade']);
   gulp.watch([sassCommon, sassPages], ['sass']);
-  gulp.watch(src_js_folder + '**/*', ['js']);
+  gulp.watch(jsSrcDir + '**/*', ['js']);
 });
 
 // ================================================================
