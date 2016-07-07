@@ -39,7 +39,7 @@
 - js + jQuery
 
 
-[Почему Symfony](http://dev.fidals.com/blog/se-project.html#why-symfony)
+[Почему Symfony](http://fidals.com/blog/se-project.html#why-symfony)
 
 <br>
 <h3 id="features">Фичи</h3>
