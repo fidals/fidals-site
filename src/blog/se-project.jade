@@ -1,8 +1,9 @@
 extends ../layouts/blog-inner
 
 block vars
-	- var title = "Проект shopelectro | Фидалс";
-	- var date = '10.03.2016';
+  - var title = "Проект shopelectro | Фидалс";
+  - var selectedLink = 'Блог';
+  - var date = '10.03.2016';
 
 block blog-content
-	include:marked ./se-project.md
+  include:marked ./se-project.md
