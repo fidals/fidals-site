@@ -19,6 +19,7 @@ html
     block meta
       meta(charset='utf-8')
       meta(http-equiv='X-UA-Compatible', content='IE=edge')
+      include ./marketing-header.html
       link(rel="apple-touch-icon", sizes="57x57", href="/images/apple-touch-icon-57x57.png")
       link(rel="apple-touch-icon", sizes="60x60", href="/images/apple-touch-icon-60x60.png")
       link(rel="apple-touch-icon", sizes="72x72", href="/images/apple-touch-icon-72x72.png")
@@ -133,8 +134,8 @@ html
                       a(class="footer-link" href="#") Фото офиса
         .footer-copyright.text-center © Фидалс 2016
 
-    include ./metrika.html
-
     block scripts
       script(src='/js/libs/vendor.min.js')
       script(src='/js/common/main.min.js')
+
+  include ./marketing-footer.html
